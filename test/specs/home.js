@@ -45,10 +45,10 @@ describe('home', () => {
         // get text
         const headingText = await headingElement.getText();
 
-        // assert the text after getting it
+        // assert the text after getting it - uses jest
         // await expect(headingText).toEqual('Think different. Make different.');
 
-        // assert the text directly from heading element
+        // assert the text directly from heading element - uses wdio assesrtions
         await expect(headingElement).toHaveText('Think different. Make different.');
     });
 
