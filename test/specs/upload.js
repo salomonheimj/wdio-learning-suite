@@ -23,7 +23,7 @@ describe('upload Test', () => {
 
     });
 
-    it.only('Upload on a hidden input field', async () => {
+    it('Upload on a hidden input field', async () => {
         // Open URL
         await browser.url('/cart');
 
