@@ -22,4 +22,28 @@ describe('upload Test', () => {
         await expect($('h3')).toHaveText('File Uploaded!');
 
     });
+
+    it.only('Upload on a hidden input field', async () => {
+        // Open URL
+        await browser.url('/cart');
+
+        // Store test field path
+        const filePath = path.join(__dirname, '../data/logotitle.png');
+
+        // Upload test file
+        const remoteFilePath = await(browser.uploadFile(filePath));
+
+        // Remove hidden class
+        await browser.execute("document.querySelector('#upfile_1').className = ''");
+
+        // Set file path value in input 
+        await $('#upfile_1').setValue(remoteFilePath);
+
+        // Click upload button
+        await $('#upload_1').click();
+
+        // Assert text contains 'uploaded successfully'
+        await expect($('#wfu_messageblock_header_1_label_1')).toHaveTextContaining('uploaded successfully');
+
+    });
 });
