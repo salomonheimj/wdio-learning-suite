@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/iframe.js'
+        './test/specs/**/home.js'
     ],
     // Patterns to exclude.
     exclude: [

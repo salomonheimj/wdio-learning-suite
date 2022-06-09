@@ -1,9 +1,11 @@
-// Practice E-Commerce Site – Automation Bro
-// https://practice.automationbro.com/
+import home_page from '../pages/home_page';
+import HomePage from '../pages/home_page';
+
 describe('home', () => {
     it('open url and assert the tile', async () => {
         // open browser
-        await browser.url('https://practice.automationbro.com/');
+        // await browser.url('https://practice.automationbro.com/');
+        await HomePage.open();
 
         // assert title
         await expect(browser).toHaveTitle('Practice E-Commerce Site – Automation Bro');
@@ -17,10 +19,11 @@ describe('home', () => {
     });
     it('click get started button and assert url contains get started text', async () => {
         // open home page
-        await browser.url('https://practice.automationbro.com/');
+        await HomePage.open();
 
         // click get started button
-        await $('#get-started').click();
+        // await $('#get-started').click();
+        await HomePage.btnGetStarted.click();
 
         // assert url contains get started text
         await expect(browser).toHaveUrlContaining('get-started');
@@ -30,17 +33,17 @@ describe('home', () => {
         await browser.url('https://practice.automationbro.com/about/');
 
         // click logo
-        await $('//img[@alt="Practice E-Commerce Site"]').click();
+        await HomePage.imageLogo.click();
 
         // assert url doesn't contain get started text
         await expect(browser).not.toHaveUrlContaining('get-started');
     });
     it('find heading element and assert text', async () => {
         // open home page
-        await browser.url('https://practice.automationbro.com/');
+        await HomePage.open();
 
         // find heading element
-        const headingElement = await $(".elementor-widget-container h1");
+        const headingElement = await HomePage.txtHeading;
 
         // get text
         // const headingText = await headingElement.getText();
