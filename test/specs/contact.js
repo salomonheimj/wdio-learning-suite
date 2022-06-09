@@ -21,6 +21,13 @@ describe('Go to contact page', async () => {
         await phoneField.setValue('12345');
         await messageField.setValue('This is a test message');
 
+        // debugging
+        // can be done with console.log() and/or
+        // browser.pause(miliseconds)
+
+        // other option is browser.debug() --> need to change mocha timeout in config file
+
+        // click on submit button
         await submitButton.click();
 
         // 		Thanks for contacting us! We will be in touch with you shortly	
