@@ -43,7 +43,7 @@ describe('home', () => {
         const headingElement = await $(".elementor-widget-container h1");
 
         // get text
-        const headingText = await headingElement.getText();
+        // const headingText = await headingElement.getText();
 
         // assert the text after getting it - uses jest
         // await expect(headingText).toEqual('Think different. Make different.');
