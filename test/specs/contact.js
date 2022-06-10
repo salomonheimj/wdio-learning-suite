@@ -1,3 +1,5 @@
+import ContactPage from '../pages/contact_page';
+
 describe('Go to contact page', async () => {
     it('find input text, add info to them, submit them and assert success message', async () => {
         await browser.url('/contact/');
@@ -9,12 +11,12 @@ describe('Go to contact page', async () => {
         // const messageField = await $('#evf-277 textarea[id*=evf-277-field_yhGx3FOwr2-4]');
 
         // by class
-        const nameField = await $('.contact-name input');
-        const emailField = await $('.contact-email input');
-        const phoneField = await $('.contact-phone input');
-        const messageField = await $('.contact-message textarea');
+        const nameField = await ContactPage.contactComponent.nameField;
+        const emailField = await ContactPage.contactComponent.emailField;
+        const phoneField = await ContactPage.contactComponent.phoneField;
+        const messageField = await ContactPage.contactComponent.messageField;
 
-        const submitButton = await $('#evf-submit-277');
+        const submitButton = await ContactPage.contactComponent.btnSubmit;
 
         await nameField.setValue('Name Test');
         await emailField.setValue('emailtest@test.com');
@@ -31,7 +33,7 @@ describe('Go to contact page', async () => {
         await submitButton.click();
 
         // 		Thanks for contacting us! We will be in touch with you shortly	
-        const confirmationMessage = await $("[role='alert']");
+        const confirmationMessage = await ContactPage.confirmationMsg;
 
         await expect(confirmationMessage).toHaveText('Thanks for contacting us! We will be in touch with you shortly');
 
