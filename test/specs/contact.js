@@ -11,17 +11,17 @@ describe('Go to contact page', async () => {
         // const messageField = await $('#evf-277 textarea[id*=evf-277-field_yhGx3FOwr2-4]');
 
         // by class
-        const nameField = await ContactPage.contactComponent.nameField;
-        const emailField = await ContactPage.contactComponent.emailField;
-        const phoneField = await ContactPage.contactComponent.phoneField;
-        const messageField = await ContactPage.contactComponent.messageField;
+        // const nameField = await ContactPage.contactComponent.nameField;
+        // const emailField = await ContactPage.contactComponent.emailField;
+        // const phoneField = await ContactPage.contactComponent.phoneField;
+        // const messageField = await ContactPage.contactComponent.messageField;
 
-        const submitButton = await ContactPage.contactComponent.btnSubmit;
+        // const submitButton = await ContactPage.contactComponent.btnSubmit;
 
-        await nameField.setValue('Name Test');
-        await emailField.setValue('emailtest@test.com');
-        await phoneField.setValue('12345');
-        await messageField.setValue('This is a test message');
+        // await nameField.setValue('Name Test');
+        // await emailField.setValue('emailtest@test.com');
+        // await phoneField.setValue('12345');
+        // await messageField.setValue('This is a test message');
 
         // debugging
         // can be done with console.log() and/or
@@ -30,7 +30,11 @@ describe('Go to contact page', async () => {
         // other option is browser.debug() --> need to change mocha timeout in config file
 
         // click on submit button
-        await submitButton.click();
+        // await submitButton.click();
+
+
+        // using method from component we can also make
+        await ContactPage.contactComponent.submitForm('Name test', 'emailtest@test.com', '12345', 'This is a test message');
 
         // 		Thanks for contacting us! We will be in touch with you shortly	
         const confirmationMessage = await ContactPage.confirmationMsg;

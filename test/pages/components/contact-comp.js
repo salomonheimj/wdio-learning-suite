@@ -20,6 +20,15 @@ class ContactComponent {
         return $('#evf-submit-277');
     }
 
+    // can also create a method to call all this
+    async submitForm(name, email, phone, message) {
+        await this.nameField.addValue(name);
+        await this.emailField.addValue(email);
+        await this.phoneField.addValue(phone);
+        await this.messageField.addValue(message);
+
+        await this.btnSubmit.click();
+    }
 }
 
 export default new ContactComponent();
