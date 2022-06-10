@@ -1,9 +1,11 @@
+import BlogClass from '../pages/blog_page';
+
 describe('on the blog section of the page', async () => {
     it('get all recent post, assert the text of each is greater than 10 characters and that there are 5 total rows', async () => {
-        await browser.url('blog/');
+        await BlogClass.open();
 
         // get all recent posts
-        const recentPostsList = await $$('#recent-posts-3 ul li');
+        const recentPostsList = await BlogClass.recentPostsList;
 
         // loop trough all recent post and assert they are greater than 10 characters long
         for (const post of recentPostsList){

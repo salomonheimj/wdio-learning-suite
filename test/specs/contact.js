@@ -2,7 +2,7 @@ import ContactPage from '../pages/contact_page';
 
 describe('Go to contact page', async () => {
     it('find input text, add info to them, submit them and assert success message', async () => {
-        await browser.url('/contact/');
+        await ContactPage.open();
 
         // by id
         // const nameField = await $('#evf-277 input[id*=evf-277-field_ys0GeZISRs-1]');
