@@ -1,4 +1,5 @@
 import ContactPage from '../pages/contact_page';
+import { faker } from '@faker-js/faker';
 
 describe('Go to contact page', async () => {
     it('find input text, add info to them, submit them and assert success message', async () => {
@@ -34,8 +35,8 @@ describe('Go to contact page', async () => {
 
 
         // using method from component we can also make
-        await ContactPage.contactComponent.submitForm('Name test', 'emailtest@test.com', '12345', 'This is a test message');
-
+        // await ContactPage.contactComponent.submitForm('Name test', 'emailtest@test.com', '12345', 'This is a test message');
+        await ContactPage.contactComponent.submitForm(faker.name.findName(), faker.internet.email(), faker.phone.phoneNumber(), faker.lorem.paragraphs(2));
         // 		Thanks for contacting us! We will be in touch with you shortly	
         const confirmationMessage = await ContactPage.confirmationMsg;
 
