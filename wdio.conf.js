@@ -27,6 +27,19 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+    // Define suites
+    // to run on console input npx wdio --suite suite_name
+    suites: {
+        smoke: [
+            './test/specs/**/contact.js',
+            './test/specs/**/home.js'
+        ],
+        component: [
+            './test/specs/**/contact.js',
+            './test/specs/**/nav.js'
+        ]
+    },
+
     //
     // ============
     // Capabilities
